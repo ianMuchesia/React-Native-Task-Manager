@@ -12,11 +12,11 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const Login = () => {
+const SignUp = () => {
   const navigation = useNavigation<any>();
 
   const handlePress = () => {
-    navigation.navigate("SignUp");
+    navigation.navigate("Login");
   };
 
   const handleLoginPress=()=>{
@@ -26,9 +26,14 @@ const Login = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={styles.loginheader}>Login </Text>
+        <Text style={styles.SignUpheader}>Sign Up </Text>
       </View>
       <View style={styles.inputContainer}>
+      <TextInput
+          style={styles.input}
+          placeholder="Full Name"
+          inputMode="text"
+        />
         <TextInput
           style={styles.input}
           placeholder="Enter your Email"
@@ -39,16 +44,21 @@ const Login = () => {
           secureTextEntry={true}
           placeholder="password"
         />
+          <TextInput
+          style={styles.input}
+          secureTextEntry={true}
+          placeholder=" Confirm Password"
+        />
       </View>
       <View style={styles.buttonContainer}>
         <Pressable style={styles.button} onPress={handleLoginPress}>
-          <Text style={styles.buttonText}>Login</Text>
+          <Text style={styles.buttonText}>Sign Up</Text>
         </Pressable>
       </View>
       <View style={styles.linkContainer}>
-        <Text style={styles.linkText}>You don't have an account? </Text>
+        <Text style={styles.linkText}>I already have an account? </Text>
         <TouchableOpacity  onPress={handlePress}>
-          <Text style={styles.link}>Sign Up</Text>
+          <Text style={styles.link}>Login</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -60,9 +70,9 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
 
-    paddingTop: 80,
+    paddingTop: 60,
     backgroundColor: "#C4EFB7",
-    paddingBottom: 80,
+    paddingBottom: 50,
     paddingLeft: 6,
     paddingRight: 6,
   },
@@ -72,11 +82,11 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "flex-start",
   },
-  loginheader: {
+  SignUpheader: {
     fontSize: 60,
   },
   inputContainer: {
-    flex: 2,
+    flex: 4,
     alignItems: "flex-start",
     justifyContent: "space-evenly",
   },
@@ -119,4 +129,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default SignUp;
